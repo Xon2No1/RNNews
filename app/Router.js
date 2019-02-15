@@ -3,17 +3,36 @@ import {Scene, Router, Lightbox, Drawer} from "react-native-router-flux";
 
 import News from "./component/NewsPage";
 import Today from "./component/ToadyPage";
+import TabIcon from "./component/widget/TabIcon";
+import * as Constant from './style/constant'
 
 
 const getRouter = () => {
     return (
         <Router>
             <Scene key="root">
-                <Scene key="news" component={News} title="新闻" initial={true}/>
-                <Scene key="today" component={Today} title="历史今日"/>
+                <Scene
+                    key="main"
+                    initial
+                    tabs={true}
+                    lazy
+                    wrap={false}
+                    showLabel={false}
+                    tabBarPosition={"bottom"}
+                    title={"RNNews"}
+                    tabBarStyle={{
+                        height: Constant.tabBarHeight,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: Constant.tabBackgroundColor
+                    }}>
+                    <Scene key="news" component={News} icon={TabIcon} title={"新闻"} tabIconName={'tabNews'}/>
+                    <Scene key="today" component={Today} icon={TabIcon} title={"历史今日"} tabIconName={'tabToday'}/>
+                </Scene>
             </Scene>
         </Router>
     );
 };
+//initial={true}
 
 export default getRouter;
