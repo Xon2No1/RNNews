@@ -19,6 +19,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 const config = {
     ["tabNews"]: 'logo-hackernews',
     ["tabToday"]: 'md-time',
+    ["tabJoker"]: 'ios-happy',
 };
 
 const propTypes = {
